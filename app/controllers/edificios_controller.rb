@@ -1,7 +1,10 @@
 class EdificiosController < ApplicationController
   before_action :set_edificio, only: %i[ show edit update destroy ]
+  before_action :authenticate_usuario!, only: %i[ new edit create update destroy ]
 
-  # GET /edificios or /edificios.json
+  # GET /edificios
+  # GET /edificios.
+  #  # GET /edificios or /edificios.json
   def index
     @edificios = Edificio.all
     @total_edificios = Edificio.total_edificios

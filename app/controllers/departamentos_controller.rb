@@ -1,6 +1,6 @@
 class DepartamentosController < ApplicationController
   before_action :set_departamento, only: %i[ show edit update destroy ]
-  before_action :consultar_edifiicios, only: %i[ show new edit create update ]
+  before_action :consultar_edificios, only: %i[ show new edit create update ]
 
   # GET /departamentos or /departamentos.json
   def index
@@ -70,7 +70,7 @@ class DepartamentosController < ApplicationController
       params.require(:departamento).permit(:numero, :edificio_id)
     end
 
-    def consultar_edifiicios
+    def consultar_edificios
       @edificios = Edificio.all.order(nombre: :asc)
     end
 end
