@@ -1,0 +1,42 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Edificios" %>
+
+<h1 class="my-5 text-center">Edificios</h1>
+
+<div class="row justify-content-between">
+  <div class="col">
+    Contamos con un Total de <%= @total_edificios %> Edificios
+  </div>
+  <div class="col text-end">
+    <%= link_to "New Edificio", new_edificio_path, class:"btn btn-dark" %>
+  </div>
+</div>
+
+<table class="table table-striped mb-5">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Dirección</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @edificios.each do |edificio| %>
+    <tr>
+      <td><%= edificio.id %></td>
+      <td><%= edificio.nombre %></td>
+      <td><%= edificio.direccion %></td>
+      <td>
+        <%= link_to "Detalles", edificio, class:"btn btn-sm btn-secondary" %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<div id="edificios">
+
+</div>
+

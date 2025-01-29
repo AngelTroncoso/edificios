@@ -1,0 +1,43 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Departamentos" %>
+
+<h1 class="my-5 text-center">Departamentos</h1>
+
+<div class="row justify-content-between">
+  <div class="col">
+    Contamos con un Total de <%= @total_departamentos %> Departamentos
+  </div>
+  <div class="col text-end">
+    <%= link_to "New Departamento", new_departamento_path, class:"btn btn-dark" %>
+  </div>
+</div>
+
+<table class="table table-striped mb-5">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Numero</th>
+      <th>Edificio</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @departamentos.each do |departamento| %>
+    <tr>
+      <td><%= departamento.id %></td>
+      <td><%= departamento.numero %></td>
+      <td><%= departamento.edificio_id %></td>
+       <td>
+        <%= link_to "Detalles", departamento, class:"btn btn-sm btn-secondary" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<div id="departamentos">
+
+</div>
+
